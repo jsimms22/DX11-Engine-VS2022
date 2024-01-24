@@ -73,22 +73,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
-    <LibraryPath>$(SolutionDir)vendor\dx11\lib\x64\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)vendor\dx11\lib\x64\Debug\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
-    <LibraryPath>$(SolutionDir)vendor\dx11\lib\Win32\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)vendor\dx11\lib\Win32\Debug\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
-    <LibraryPath>$(SolutionDir)vendor\dx11\lib\Win32\Release;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)vendor\dx11\lib\Win32\Release\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
-    <LibraryPath>$(SolutionDir)vendor\dx11\lib\x64\Release;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)vendor\dx11\lib\x64\Release\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -159,16 +159,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Engine.cpp" />
     <ClCompile Include="source\ErrorLogger.cpp" />
+    <ClCompile Include="source\Keyboard\KeyboardClass.cpp" />
+    <ClCompile Include="source\Keyboard\KeyboardEvent.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\RenderWindow.cpp" />
     <ClCompile Include="source\StringConverter.cpp" />
+    <ClCompile Include="source\WindowContainer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\Engine.h" />
     <ClInclude Include="headers\ErrorLogger.h" />
-    <ClInclude Include="headers\main.h" />
+    <ClInclude Include="headers\Keyboard\KeyBoardClass.h" />
+    <ClInclude Include="headers\Keyboard\KeyboardEvent.h" />
     <ClInclude Include="headers\RenderWindow.h" />
     <ClInclude Include="headers\StringConverter.h" />
+    <ClInclude Include="headers\WindowContainer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
