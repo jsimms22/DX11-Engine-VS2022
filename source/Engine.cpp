@@ -5,8 +5,12 @@ bool Engine::Initialize(HINSTANCE _hInstance,
 	std::string _window_class,
 	int _width, int _height)
 {
-	return this->m_render_window.Initialize(this,_hInstance, _window_title, _window_class, _width, _height);
+	if (!this->m_render_window.Initialize(this, _hInstance, _window_title, _window_class, _width, _height)) { return false; }
+
+	if (!this->m_gfx.Initialize(m_render_window.GetHWND(), _width, _height)) { return false; }
 	// generally we would render all our graphics after initializing our window
+
+	return true;
 }
 
 bool Engine::ProcessMessages()

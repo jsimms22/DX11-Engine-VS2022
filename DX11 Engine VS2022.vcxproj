@@ -102,7 +102,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)vendor\dx11\lib\Win32\Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib;DXGI.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -121,7 +121,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)vendor\dx11\lib\Win32\Release</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib;DXGI.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -136,7 +136,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)vendor\dx11\lib\x64\Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib;DXGI.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -155,12 +155,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)vendor\dx11\lib\x64\Release</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib;DXGI.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="source\Engine.cpp" />
     <ClCompile Include="source\ErrorLogger.cpp" />
+    <ClCompile Include="source\Graphics\AdapterReader.cpp" />
+    <ClCompile Include="source\Graphics\Graphics.cpp" />
     <ClCompile Include="source\Keyboard\KeyboardClass.cpp" />
     <ClCompile Include="source\Keyboard\KeyboardEvent.cpp" />
     <ClCompile Include="source\main.cpp" />
@@ -173,6 +175,8 @@
   <ItemGroup>
     <ClInclude Include="headers\Engine.h" />
     <ClInclude Include="headers\ErrorLogger.h" />
+    <ClInclude Include="headers\Graphics\AdapterReader.h" />
+    <ClInclude Include="headers\Graphics\Graphics.h" />
     <ClInclude Include="headers\Keyboard\KeyBoardClass.h" />
     <ClInclude Include="headers\Keyboard\KeyboardEvent.h" />
     <ClInclude Include="headers\Mouse\MouseClass.h" />

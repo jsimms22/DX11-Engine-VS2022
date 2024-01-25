@@ -15,6 +15,7 @@ public:
 	// if returns false, then window should be closed
 	// otherwise continue messaging loop
 	bool ProcessMessages();
+	HWND GetHWND() const;
 	~RenderWindow();
 
 private:

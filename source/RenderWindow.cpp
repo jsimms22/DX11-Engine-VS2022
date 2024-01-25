@@ -149,6 +149,8 @@ bool RenderWindow::ProcessMessages()
 	return true;
 }
 
+HWND RenderWindow::GetHWND() const { return this->m_handle; }
+
 RenderWindow::~RenderWindow()
 {
 	if (this->m_handle != nullptr) {
