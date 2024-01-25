@@ -126,7 +126,8 @@ bool RenderWindow::ProcessMessages()
 	ZeroMemory(&msg, sizeof(MSG)); // Initialize the message structure
 
 	// Using Peek to avoid blocking with GetMessage()
-	if (PeekMessage(&msg, 
+	// We may have multiple messages in queue, if restricts to one message processed per frame
+	while (PeekMessage(&msg,
 		this->m_handle, // Handle to window for peeking messages, 
 						// If you want all messages use null
 		0, // Max filter msg value - we are not filtering for a specific message

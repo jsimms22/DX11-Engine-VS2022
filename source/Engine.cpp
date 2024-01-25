@@ -66,6 +66,7 @@ void Engine::Update()
 		*/
 
 		// Testing position input (raw)
+		/*
 		if (me.GetType() == mouse::MouseEvent::EventType::RAW_MOVE) {
 			std::string outmsg = "X: ";
 			outmsg += std::to_string(me.GetPosX());
@@ -75,5 +76,8 @@ void Engine::Update()
 			OutputDebugStringA(outmsg.c_str());
 
 		}
+		*/
 	}
 }
+
+void Engine::RenderFrame() { m_gfx.RenderFrame(); }

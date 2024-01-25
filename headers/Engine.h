@@ -10,4 +10,5 @@ public:
 		int _width, int _height);			// assign window size
 	bool ProcessMessages();
 	void Update();
+	void RenderFrame();
 };

@@ -7,6 +7,7 @@ namespace graphics
 	{
 	public:
 		bool Initialize(HWND _hwnd, int _width, int _height);
+		void RenderFrame();
 
 	private:
 		bool InitializeDirectX(HWND _hwnd, int _width, int _height);
