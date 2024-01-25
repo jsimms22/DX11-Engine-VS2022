@@ -1,24 +1,26 @@
 #pragma once
 
-
-class KeyboardEvent
+namespace keyboard
 {
-public:
-	enum EventType
+	class KeyboardEvent
 	{
-		Press,
-		Release,
-		Invalid
+	public:
+		enum class EventType
+		{
+			Press,
+			Release,
+			Invalid
+		};
+
+		KeyboardEvent();
+		KeyboardEvent(const KeyboardEvent::EventType _type, const unsigned char _key);
+		bool isPress() const;
+		bool isRelease() const;
+		bool isValid() const;
+		unsigned char GetKeyCode() const;
+
+	private:
+		EventType m_type;
+		unsigned char m_key;
 	};
-
-	KeyboardEvent();
-	KeyboardEvent(const EventType _type, const unsigned char _key);
-	bool isPress() const;
-	bool isRelease() const;
-	bool isValid() const;
-	unsigned char GetKeyCode() const;
-
-private:
-	EventType m_type;
-	unsigned char m_key;
-};
+}

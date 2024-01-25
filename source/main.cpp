@@ -13,7 +13,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	Engine engine;
 	engine.Initialize(hInstance,"Test Window","MyWindowClass",800,600);
 
-	while (engine.ProcessMessages()) { }
+	while (engine.ProcessMessages()) { 
+		engine.Update();
+	}
 
 	return 0;
 }

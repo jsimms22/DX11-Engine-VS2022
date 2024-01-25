@@ -164,6 +164,8 @@
     <ClCompile Include="source\Keyboard\KeyboardClass.cpp" />
     <ClCompile Include="source\Keyboard\KeyboardEvent.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\Mouse\MouseClass.cpp" />
+    <ClCompile Include="source\Mouse\MouseEvent.cpp" />
     <ClCompile Include="source\RenderWindow.cpp" />
     <ClCompile Include="source\StringConverter.cpp" />
     <ClCompile Include="source\WindowContainer.cpp" />
@@ -173,6 +175,8 @@
     <ClInclude Include="headers\ErrorLogger.h" />
     <ClInclude Include="headers\Keyboard\KeyBoardClass.h" />
     <ClInclude Include="headers\Keyboard\KeyboardEvent.h" />
+    <ClInclude Include="headers\Mouse\MouseClass.h" />
+    <ClInclude Include="headers\Mouse\MouseEvent.h" />
     <ClInclude Include="headers\RenderWindow.h" />
     <ClInclude Include="headers\StringConverter.h" />
     <ClInclude Include="headers\WindowContainer.h" />
