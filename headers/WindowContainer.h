@@ -6,6 +6,7 @@
 class WindowContainer
 {
 public:
+	WindowContainer();
 	LRESULT HandleMessageSetup(HWND _hwnd, UINT _uMsg, WPARAM _wParam, LPARAM _lParam);
 protected:
 	RenderWindow m_render_window;

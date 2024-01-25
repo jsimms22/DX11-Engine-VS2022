@@ -49,6 +49,8 @@ namespace mouse
 		this->m_eventBuffer.push(MouseEvent(MouseEvent::EventType::Move, _x, _y));
 	}
 
+	void MouseClass::OnMouseMoveRaw(int _x, int _y) { this->m_eventBuffer.push(MouseEvent(MouseEvent::EventType::RAW_MOVE, _x, _y)); }
+
 	bool MouseClass::IsLeftDown() { return this->m_leftIsDown; }
 
 	bool MouseClass::IsMiddleDown() { return this->m_middleIsDown; }

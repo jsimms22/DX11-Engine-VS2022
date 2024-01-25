@@ -16,6 +16,7 @@ namespace mouse
 		void OnWheelUp(int _x, int _y);
 		void OnWheelDown(int _x, int _y);
 		void OnMouseMove(int _x, int _y);
+		void OnMouseMoveRaw(int _x, int _y);
 
 		bool IsLeftDown();
 		bool IsMiddleDown();
