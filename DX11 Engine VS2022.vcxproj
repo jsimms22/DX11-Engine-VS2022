@@ -177,6 +177,7 @@
     <ClInclude Include="headers\ErrorLogger.h" />
     <ClInclude Include="headers\Graphics\AdapterReader.h" />
     <ClInclude Include="headers\Graphics\Graphics.h" />
+    <ClInclude Include="headers\Graphics\Vertex.h" />
     <ClInclude Include="headers\Keyboard\KeyBoardClass.h" />
     <ClInclude Include="headers\Keyboard\KeyboardEvent.h" />
     <ClInclude Include="headers\Mouse\MouseClass.h" />

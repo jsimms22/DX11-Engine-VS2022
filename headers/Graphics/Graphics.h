@@ -1,5 +1,6 @@
 #pragma once
 #include "AdapterReader.h"
+#include <array>
 
 namespace graphics
 {
@@ -11,10 +12,15 @@ namespace graphics
 
 	private:
 		bool InitializeDirectX(HWND _hwnd, int _width, int _height);
+		bool InitializeShaders();
 
 		Microsoft::WRL::ComPtr<ID3D11Device> m_device;
 		Microsoft::WRL::ComPtr<ID3D11DeviceContext> m_deviceContext;
 		Microsoft::WRL::ComPtr<IDXGISwapChain> m_swapChain;
 		Microsoft::WRL::ComPtr<ID3D11RenderTargetView> m_renderTargetView;
+
+		//Input Assembler
+		Microsoft::WRL::ComPtr<ID3D11InputLayout> m_inputLayout;
+		Microsoft::WRL::ComPtr<ID3D10Blob> m_vertex_shader_buffer;
 	};
 }

@@ -20,3 +20,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 	return 0;
 }
+
+// Dx11 Graphics Pipeline
+/*
+	Input-Assembler Stage
+	Vertex Shader
+	Tessellation
+	Geometry Shader
+	Rasterizer
+	Pixel Shader
+	Output-Merger
+	Render Target
+*/
