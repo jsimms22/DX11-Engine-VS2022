@@ -102,8 +102,14 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)vendor\dx11\lib\Win32\Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib;DXGI.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib;DXGI.lib;D3DCompiler.lib</AdditionalDependencies>
     </Link>
+    <FxCompile>
+      <ShaderType>Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile>
+      <ShaderModel>5.0</ShaderModel>
+    </FxCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -121,8 +127,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)vendor\dx11\lib\Win32\Release</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib;DXGI.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib;DXGI.lib;D3DCompiler.lib</AdditionalDependencies>
     </Link>
+    <FxCompile>
+      <ShaderType>Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile>
+      <ShaderModel>5.0</ShaderModel>
+    </FxCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -136,8 +148,14 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)vendor\dx11\lib\x64\Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib;DXGI.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib;DXGI.lib;D3DCompiler.lib</AdditionalDependencies>
     </Link>
+    <FxCompile>
+      <ShaderType>Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile>
+      <ShaderModel>5.0</ShaderModel>
+    </FxCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -155,14 +173,21 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)vendor\dx11\lib\x64\Release</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib;DXGI.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);DirectXTK.lib;d3d11.lib;DXGI.lib;D3DCompiler.lib</AdditionalDependencies>
     </Link>
+    <FxCompile>
+      <ShaderType>Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile>
+      <ShaderModel>5.0</ShaderModel>
+    </FxCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="source\Engine.cpp" />
     <ClCompile Include="source\ErrorLogger.cpp" />
     <ClCompile Include="source\Graphics\AdapterReader.cpp" />
     <ClCompile Include="source\Graphics\Graphics.cpp" />
+    <ClCompile Include="source\Graphics\Shaders.cpp" />
     <ClCompile Include="source\Keyboard\KeyboardClass.cpp" />
     <ClCompile Include="source\Keyboard\KeyboardEvent.cpp" />
     <ClCompile Include="source\main.cpp" />
@@ -177,6 +202,7 @@
     <ClInclude Include="headers\ErrorLogger.h" />
     <ClInclude Include="headers\Graphics\AdapterReader.h" />
     <ClInclude Include="headers\Graphics\Graphics.h" />
+    <ClInclude Include="headers\Graphics\Shaders.h" />
     <ClInclude Include="headers\Graphics\Vertex.h" />
     <ClInclude Include="headers\Keyboard\KeyBoardClass.h" />
     <ClInclude Include="headers\Keyboard\KeyboardEvent.h" />
@@ -185,6 +211,9 @@
     <ClInclude Include="headers\RenderWindow.h" />
     <ClInclude Include="headers\StringConverter.h" />
     <ClInclude Include="headers\WindowContainer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="resources\vertexshader.hlsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

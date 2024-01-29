@@ -2,6 +2,28 @@
 
 namespace graphics
 {
+	std::wstring FindShaderFolderMacro() {
+		std::wstring shaderFolder = L"";
+#pragma region DetermineShaderPath
+		if (IsDebuggerPresent() == TRUE) {
+	#ifdef _DEBUG
+		#ifdef _WIN64 
+			shaderFolder = L"bin\\x64\\Debug\\";
+		#else 
+			shaderFolder = L"bin\\Win32\\Debug\\";
+		#endif
+	#else 
+		#ifdef _WIN64
+			shaderFolder = L"bin\\x64\\Release\\";
+		#else
+			shaderFolder = L"bin\\Win32\\Release\\";
+		#endif
+	#endif
+		}
+
+		return shaderFolder;
+	}
+
 	bool Graphics::Initialize(HWND _hwnd, int _width, int _height) 
 	{
 		if (!(InitializeDirectX(_hwnd, _width, _height))) { return false; }
@@ -89,6 +111,16 @@ namespace graphics
 
 	bool Graphics::InitializeShaders()
 	{
+		//char shaderFolder[MAX_PATH];
+		//std::wstring shaderFolder;
+		//wchar_t shaderFolder[MAX_PATH];
+		if (!m_vertexShader.Initialize(this->m_device,
+			FindShaderFolderMacro() +
+			//GetModuleFileNameA(NULL, shaderFolder, MAX_PATH) + 
+			L"vertexshader.cso")) {
+			return false;
+		}
+		
 		D3D11_INPUT_ELEMENT_DESC layout[] =
 		{
 			{"POSITION", 0, DXGI_FORMAT::DXGI_FORMAT_R32G32_FLOAT, 0, 0, D3D11_INPUT_CLASSIFICATION::D3D11_INPUT_PER_VERTEX_DATA, 0}
@@ -97,8 +129,8 @@ namespace graphics
 
 		UINT layoutSize = ARRAYSIZE(layout);
 
-		HRESULT hr = this->m_device->CreateInputLayout(layout, layoutSize, m_vertex_shader_buffer->GetBufferPointer(), 
-			m_vertex_shader_buffer->GetBufferSize(), this->m_inputLayout.GetAddressOf());
+		HRESULT hr = this->m_device->CreateInputLayout(layout, layoutSize, m_vertexShader.GetBuffer()->GetBufferPointer(),
+			m_vertexShader.GetBuffer()->GetBufferSize(), this->m_inputLayout.GetAddressOf());
 		if (FAILED(hr)) {
 			ErrorLogger::Log(hr, "Failed to create input layout.");
 			return false;

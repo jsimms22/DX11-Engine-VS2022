@@ -1,5 +1,6 @@
 #pragma once
 #include "AdapterReader.h"
+#include "Shaders.h"
 #include <array>
 
 namespace graphics
@@ -21,6 +22,9 @@ namespace graphics
 
 		//Input Assembler
 		Microsoft::WRL::ComPtr<ID3D11InputLayout> m_inputLayout;
-		Microsoft::WRL::ComPtr<ID3D10Blob> m_vertex_shader_buffer;
+
+		//Shader
+		VertexShader m_vertexShader;
+		//Microsoft::WRL::ComPtr<ID3D10Blob> m_vertex_shader_buffer;
 	};
 }
