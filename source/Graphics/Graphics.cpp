@@ -111,12 +111,8 @@ namespace graphics
 
 	bool Graphics::InitializeShaders()
 	{
-		//char shaderFolder[MAX_PATH];
-		//std::wstring shaderFolder;
-		//wchar_t shaderFolder[MAX_PATH];
 		if (!m_vertexShader.Initialize(this->m_device,
 			FindShaderFolderMacro() +
-			//GetModuleFileNameA(NULL, shaderFolder, MAX_PATH) + 
 			L"vertexshader.cso")) {
 			return false;
 		}
