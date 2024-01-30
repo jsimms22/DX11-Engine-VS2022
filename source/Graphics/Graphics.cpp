@@ -73,18 +73,18 @@ namespace graphics
 		scd.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
 
 		HRESULT hr = D3D11CreateDeviceAndSwapChain(
-			adapters[0].m_ptrAdapter,			//IDXG Adapter
-			D3D_DRIVER_TYPE_UNKNOWN,			// Unspecified Hardware Driver Type
-			NULL,								// For Softwate Drive Type
-			NULL,								// Flags for runtime layers
-			NULL,								// Feature levels array
-			0,									// Number of indices for the feature levels array
-			D3D11_SDK_VERSION,					// Our SDK version
-			&scd,								// Pointer to our swapchain description
-			this->m_swapChain.GetAddressOf(),	// pointer to our swapchain
-			this->m_device.GetAddressOf(),		// Pointer to our device
-			NULL,								// Supported feature level of the device
-			this->m_deviceContext.GetAddressOf());// Device context
+			adapters[0].m_ptrAdapter,				//IDXG Adapter
+			D3D_DRIVER_TYPE_UNKNOWN,				// Unspecified Hardware Driver Type
+			NULL,									// For Softwate Drive Type
+			NULL,									// Flags for runtime layers
+			NULL,									// Feature levels array
+			0,										// Number of indices for the feature levels array
+			D3D11_SDK_VERSION,						// Our SDK version
+			&scd,									// Pointer to our swapchain description
+			this->m_swapChain.GetAddressOf(),		// pointer to our swapchain
+			this->m_device.GetAddressOf(),			// Pointer to our device
+			NULL,									// Supported feature level of the device
+			this->m_deviceContext.GetAddressOf());	// Device context
 
 		if (FAILED(hr)) {
 			ErrorLogger::Log(hr, "Failed to create device and swapchain.");
@@ -111,12 +111,6 @@ namespace graphics
 
 	bool Graphics::InitializeShaders()
 	{
-		if (!m_vertexShader.Initialize(this->m_device,
-			FindShaderFolderMacro() +
-			L"vertexshader.cso")) {
-			return false;
-		}
-		
 		D3D11_INPUT_ELEMENT_DESC layout[] =
 		{
 			{"POSITION", 0, DXGI_FORMAT::DXGI_FORMAT_R32G32_FLOAT, 0, 0, D3D11_INPUT_CLASSIFICATION::D3D11_INPUT_PER_VERTEX_DATA, 0}
@@ -125,12 +119,16 @@ namespace graphics
 
 		UINT layoutSize = ARRAYSIZE(layout);
 
-		HRESULT hr = this->m_device->CreateInputLayout(layout, layoutSize, m_vertexShader.GetBuffer()->GetBufferPointer(),
-			m_vertexShader.GetBuffer()->GetBufferSize(), this->m_inputLayout.GetAddressOf());
-		if (FAILED(hr)) {
-			ErrorLogger::Log(hr, "Failed to create input layout.");
+		if (!m_vertexShader.Initialize(this->m_device,
+			FindShaderFolderMacro() +
+			L"vertexshader.cso", layout, layoutSize)) {
 			return false;
 		}
+		
+
+
+
+		
 		return false;
 	}
 }

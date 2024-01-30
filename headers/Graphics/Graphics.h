@@ -20,9 +20,6 @@ namespace graphics
 		Microsoft::WRL::ComPtr<IDXGISwapChain> m_swapChain;
 		Microsoft::WRL::ComPtr<ID3D11RenderTargetView> m_renderTargetView;
 
-		//Input Assembler
-		Microsoft::WRL::ComPtr<ID3D11InputLayout> m_inputLayout;
-
 		//Shader
 		VertexShader m_vertexShader;
 		//Microsoft::WRL::ComPtr<ID3D10Blob> m_vertex_shader_buffer;

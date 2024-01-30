@@ -23,8 +23,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 // Dx11 Graphics Pipeline
 /*
-	Input-Assembler Stage
-	Vertex Shader
+	Input-Assembler Stage - Completed
+	Vertex Shader - Completed
 	Tessellation
 	Geometry Shader
 	Rasterizer
